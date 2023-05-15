@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int originalNumber, sum, checkDigit;
+    char originalString[5], newString[6];
+        printf("Enter a four-digit number: ");
+    scanf("%d", &originalNumber);
+        sprintf(originalString, "%d", originalNumber);
+        sum = 0;
+    for (int i = 0; i < 4; i++) {
+        sum += originalString[i] - '0';
+    }
+        checkDigit = (sum % 2 == 0) ? 0 : 1;
+        sprintf(newString, "%s%d", originalString, checkDigit);
+        printf("Original number: %s\n", originalString);
+    printf("New number: %s\n", newString);
+    return 0;
+}
