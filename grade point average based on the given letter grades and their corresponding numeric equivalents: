@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    char grade;
+    int units, total_units = 0;
+    float grade_points, total_grade_points = 0.0;
+
+    while (1) {
+        printf("Enter the course grade and units (e.g. A 3), or 'Q' to quit: ");
+        scanf("%c", &grade);
+
+        if (grade == 'Q') {
+            break;
+        }
+
+        scanf("%d", &units);
+
+        switch (grade) {
+            case 'A':
+                grade_points = 4.0;
+                break;
+            case 'B':
+                grade_points = 3.0;
+                break;
+            case 'C':
+                grade_points = 2.0;
+                break;
+            case 'D':
+                grade_points = 1.0;
+                break;
+            case 'F':
+                grade_points = 0.0;
+                break;
+            default:
+                printf("Invalid grade entered. Please try again.\n");
+                continue;
+        }
+
+        total_units += units;
+        total_grade_points += (grade_points * units);
+    }
+
+    if (total_units == 0) {
+        printf("No courses entered.\n");
+    } else {
+        float gpa = total_grade_points / total_units;
+        printf("Your GPA for the semester is %.2f\n", gpa);
+    }
+
+    return 0;
+}
